@@ -1,0 +1,48 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE beans PUBLIC "-//CRAZYIT//DTD BEAN//EN" "http://www.crazyit.org/beans.dtd">
+
+<beans >
+	<bean id="test1" class="org.crazyit.ioc.context.object.XmlApplicationContextObject1"></bean>
+	
+	<bean id="test2" class="org.crazyit.ioc.context.object.XmlApplicationContextObject2">
+		<constructor-arg>
+			<value type="java.lang.String">yangenxiong</value>
+		</constructor-arg>
+		<constructor-arg>
+			<value type="java.lang.Integer">10</value> 
+		</constructor-arg>
+		<constructor-arg>
+			<ref bean="test1"/> 
+		</constructor-arg>
+	</bean>
+	
+	<bean id="test3" 
+	class="org.crazyit.ioc.context.object.XmlApplicationContextObject1" singleton="false">
+	
+	</bean>
+	
+	<!-- 测试autowire -->
+	<bean class="org.crazyit.ioc.context.object.XmlApplicationContextObject1" 
+		id="object1">
+	</bean>
+	<bean id="test4" 
+		class="org.crazyit.ioc.context.object.XmlApplicationContextObject3" 
+		autowire="byName">
+	</bean>
+	<!-- 测试lazy-init -->
+	<bean id="test5" class="org.crazyit.ioc.context.object.XmlApplicationContextObject3" lazy-init="true">
+	</bean>
+	
+	<!-- 测试设值注入 -->
+	<bean id="test6" class="org.crazyit.ioc.context.object.XmlApplicationContextObject3">
+		<property name="name">
+			<value type="java.lang.String">yangenxiong</value>
+		</property>
+		<property name="age">
+			<value type="java.lang.Integer">10</value>
+		</property>
+		<property name="object1">
+			<ref bean="object1"/>
+		</property>
+	</bean>
+</beans>

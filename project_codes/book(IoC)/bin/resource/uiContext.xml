@@ -1,0 +1,70 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE beans PUBLIC "-//CRAZYIT//DTD BEAN//EN" "http://www.crazyit.org/beans.dtd">
+
+<beans>
+
+	<!-- 界面对象 -->
+	<!-- 登录界面, 同时使用构造注入和设值注入 -->
+	<bean id="loginFrame" class="org.crazyit.book.ui.LoginFrame">
+		<!-- 通过构造注入, 向LoginFrame注入userService(用户业务接口) -->
+		<constructor-arg>
+			<ref bean="userService"/>
+		</constructor-arg>
+		<!-- 通过设值注入方式, 向LoginFrame对象注入MainFrame的bean -->
+		<property name="mainFrame">
+			<ref bean="mainFrame"/>
+		</property>
+	</bean>
+	<!-- 
+		主界面MainFrame的bean，需要进行构造注入，由于初始化界面的时候，需要设置当前界面为销售界面，
+		除了SalePanel外，其他界面对象通过自动装配初始化
+	 -->
+	<bean id="mainFrame" class="org.crazyit.book.ui.MainFrame" autowire="byName">
+		<constructor-arg>
+			<ref bean="salePanel"/>
+		</constructor-arg>
+	</bean>
+	<!-- 各个界面对象(JPanel对象)，在这里使用构造注入，因为在创建这些对象时，需要初始化数据，数据是从业务层得到的 -->
+	<!-- 销售JPanel -->
+	<bean id="salePanel" class="org.crazyit.book.ui.SalePanel">
+		<constructor-arg>
+			<ref bean="bookService"/>
+		</constructor-arg>
+		<constructor-arg>
+			<ref bean="saleRecordService"/>
+		</constructor-arg>
+	</bean>
+	<!-- 库存JPanel -->
+	<bean id="repertoryPanel" class="org.crazyit.book.ui.RepertoryPanel">
+		<constructor-arg>
+			<ref bean="inRecordService"/>
+		</constructor-arg>
+		<constructor-arg>
+			<ref bean="bookService"/>
+		</constructor-arg>
+	</bean>
+	<!-- 书本JPanel -->
+	<bean id="bookPanel" class="org.crazyit.book.ui.BookPanel">
+		<constructor-arg>
+			<ref bean="bookService"/>
+		</constructor-arg>
+		<constructor-arg>
+			<ref bean="typeService"/>
+		</constructor-arg>
+		<constructor-arg>
+			<ref bean="concernService"/>
+		</constructor-arg>
+	</bean>
+	<!-- 出版社JPanel -->
+	<bean id="concernPanel" class="org.crazyit.book.ui.ConcernPanel">
+		<constructor-arg>
+			<ref bean="concernService"/>
+		</constructor-arg>
+	</bean>
+	<!-- 种类JPanel -->
+	<bean id="typePanel" class="org.crazyit.book.ui.TypePanel">
+		<constructor-arg>
+			<ref bean="typeService"/>
+		</constructor-arg>
+	</bean>
+</beans>

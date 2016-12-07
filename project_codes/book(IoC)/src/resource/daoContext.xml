@@ -1,0 +1,22 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE beans PUBLIC "-//CRAZYIT//DTD BEAN//EN" "http://www.crazyit.org/beans.dtd">
+<beans>
+	<!-- DAO -->
+	<!-- 用户的dao -->
+	<bean id="userDao" class="org.crazyit.book.dao.impl.UserDaoImpl"></bean>
+	<!-- 用户的业务接口, 使用设值注入 -->
+	<!-- 书本种类DAO -->
+	<bean id="typeDao" class="org.crazyit.book.dao.impl.TypeDaoImpl"></bean>
+	<!-- 出版社DAO -->
+	<bean id="concernDao" class="org.crazyit.book.dao.impl.ConcernDaoImpl"></bean>
+	<!-- 书本DAO -->
+	<bean id="bookDao" class="org.crazyit.book.dao.impl.BookDaoImpl"></bean>
+	<!-- 销售DAO -->
+	<bean id="saleRecordDao" class="org.crazyit.book.dao.impl.SaleRecordDaoImpl"></bean>
+	<!-- 书本销售DAO -->
+	<bean id="bookSaleRecordDao" class="org.crazyit.book.dao.impl.BookSaleRecordDaoImpl"></bean>
+	<!-- 入库DAO -->
+	<bean id="inRecordDao" class="org.crazyit.book.dao.impl.InRecordDaoImpl"></bean>
+	<!-- 书本入库DAO -->
+	<bean id="bookInRecordDao" class="org.crazyit.book.dao.impl.BookInRecordDaoImpl"></bean>
+</beans>

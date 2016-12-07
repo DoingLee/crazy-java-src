@@ -1,0 +1,5 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE beans PUBLIC "-//CRAZYIT//DTD BEAN//EN" "http://www.crazyit.org/beans.dtd">
+<beans>
+	<bean id="test" class=" org.crazyit.ioc.xml.TestObject1"></bean>
+</beans>

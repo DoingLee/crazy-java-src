@@ -1,0 +1,104 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE beans PUBLIC "-//CRAZYIT//DTD BEAN//EN" "http://www.crazyit.org/beans.dtd">
+
+<beans>
+	<!-- isLazy方法 -->
+	<bean id="test1-1" class="org.crazyit.ioc.xml.TestObject1" lazy-init="true"></bean>
+	<bean id="test1-2" class="org.crazyit.ioc.xml.TestObject1" lazy-init="default"></bean>
+	<bean id="test1-3" class="org.crazyit.ioc.xml.TestObject1" lazy-init="false"></bean>
+	<!-- getConstructorElements方法 -->
+	<bean id="test2" class="org.crazyit.ioc.xml.TestObject1">
+		<constructor-arg>
+			<value type="java.lang.String">yangenxiong</value>
+		</constructor-arg>
+		<constructor-arg>
+			<value type="java.lang.String">crazyit</value>
+		</constructor-arg>
+	</bean>
+	<!-- getAttribute方法 -->
+	<bean id="test3" class="org.crazyit.ioc.xml.TestObject1"></bean>
+	<!-- isSingleton方法 -->
+	<bean id="test4-1" class="org.crazyit.ioc.xml.TestObject1" singleton="false"></bean>
+	<bean id="test4-2" class="org.crazyit.ioc.xml.TestObject1"></bean>
+	<!-- getConstructorArgs方法 -->
+	<bean id="test5" class="org.crazyit.ioc.xml.TestObject1">
+		<constructor-arg>
+			<value type="java.lang.String">yangenxiong</value>
+		</constructor-arg>
+		<constructor-arg>
+			<value type="java.lang.String">crazyit</value>
+		</constructor-arg>
+	</bean>
+	<!-- getPropertyElements方法 -->
+	<bean id="test6" class="org.crazyit.ioc.xml.TestObject1">
+		<property name="test1">
+			<ref bean="test1"/>
+		</property>
+		<property name="test2">
+			<ref bean="test2"/>
+		</property>
+	</bean>
+	<!-- getPropertyValues方法 -->
+	<bean id="test7" class="org.crazyit.ioc.xml.TestObject1">
+		<property name="test1">
+			<value type="java.lang.String">yangenxiong</value>
+		</property>
+		<property name="test2">
+			<value type="java.lang.String">crazyit</value>
+		</property>
+	</bean>
+	<!-- getPropertyRef方法 -->
+	<bean id="test8" class="org.crazyit.ioc.xml.TestObject1">
+		<property name="test1">
+			<ref bean="test1"/>
+		</property>
+		<property name="test2">
+			<ref bean="test2"/>
+		</property>
+	</bean>
+	
+	<!-- getConstructorRef方法 -->
+	<bean id="test9" class="org.crazyit.ioc.xml.TestObject1">
+		<constructor-arg>
+			<ref bean="test1"/>
+		</constructor-arg>
+		<constructor-arg>
+			<ref bean="test2"/>
+		</constructor-arg>
+	</bean>
+	
+	<!-- isAutowire方法 -->
+	<bean id="test10-1" class="org.crazyit.ioc.xml.TestObject1" autowire="byName">
+	</bean>
+	<bean id="test10-2" class="org.crazyit.ioc.xml.TestObject1" autowire="no">
+	</bean>
+	<bean id="test10-3" class="org.crazyit.ioc.xml.TestObject1" autowire="default">
+	</bean>
+	
+	<!-- getConstructorValue方法 -->
+	<bean id="test11" class="org.crazyit.ioc.xml.TestObject1">
+		<constructor-arg>
+			<value type="java.lang.String">yangenxiong</value>
+		</constructor-arg>
+		<constructor-arg>
+			<ref bean="test2"/>
+		</constructor-arg>
+		<constructor-arg>
+			<value type="java.lang.Integer">20</value>
+		</constructor-arg>
+	</bean>
+	
+	<!-- getPropertyValue方法 -->
+	<bean id="test12" class="org.crazyit.ioc.xml.TestObject1">
+		<property name="property1">
+			<value type="java.lang.String">yangenxiong</value>
+		</property>
+		<property name="property2">
+			<ref bean="test13"/>
+		</property>
+		<property name="property3">
+			<value type="java.lang.Integer">20</value>
+		</property>
+	</bean>
+	<bean class="org.crazyit.ioc.xml.TestObject2" id="test13"></bean>
+</beans>

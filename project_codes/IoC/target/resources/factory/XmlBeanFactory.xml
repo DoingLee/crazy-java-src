@@ -1,0 +1,6 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE beans PUBLIC "-//CRAZYIT//DTD BEAN//EN" "D:\JavaDev\IoC\IoC\main\org\crazyit\ioc\beans\beans.dtd">
+
+<beans>
+	<bean id="test1" class="org.crazyit.ioc.context.object.XmlApplicationContextObject1"></bean>
+</beans>

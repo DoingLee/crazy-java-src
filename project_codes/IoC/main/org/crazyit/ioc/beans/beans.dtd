@@ -1,0 +1,34 @@
+﻿<!ELEMENT beans (
+	bean*
+)>
+<!ATTLIST beans default-lazy-init (true | false) "false">
+<!ATTLIST beans default-autowire (no | byName) "no">
+<!-- 指定beans元素的子元素bean -->
+<!ELEMENT bean (
+	(constructor-arg | property)*
+)>
+<!-- 指定bean元素的属性值 -->
+<!ATTLIST bean id CDATA #REQUIRED>
+<!ATTLIST bean class CDATA #REQUIRED>
+<!ATTLIST bean lazy-init (true | false | default) "default">
+<!ATTLIST bean singleton (true | false) "true">
+<!ATTLIST bean autowire (no | byName | default) "default">
+<!-- 声明constructor-arg元素 -->
+<!ELEMENT constructor-arg (
+	(ref | value | null)
+)>
+<!-- 声明property元素 -->
+<!ELEMENT property (
+	(ref | value | null)?
+)>
+<!-- 声明property的name属性 -->
+<!ATTLIST property name CDATA #REQUIRED>
+<!-- 声明value的type属性 -->
+<!ATTLIST value type CDATA #REQUIRED>
+<!-- 声明ref元素 -->
+<!ELEMENT ref EMPTY>
+<!-- 声明ref的bean属性 -->
+<!ATTLIST ref bean CDATA #REQUIRED>
+
+<!-- 声明value元素 -->
+<!ELEMENT value (#PCDATA)>

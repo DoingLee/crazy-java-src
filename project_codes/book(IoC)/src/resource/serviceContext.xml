@@ -1,0 +1,21 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE beans PUBLIC "-//CRAZYIT//DTD BEAN//EN" "http://www.crazyit.org/beans.dtd">
+<beans>
+	<!-- Service，在这里使用自动装配 -->
+	<!-- 用户service使用设值注入，不自动装配 -->
+	<bean id="userService" class="org.crazyit.book.service.impl.UserServiceImpl">
+		<property name="userDao">
+			<ref bean="userDao"/>
+		</property>
+	</bean>
+	<!-- 种类service -->
+	<bean id="typeService" class="org.crazyit.book.service.impl.TypeServiceImpl" autowire="byName"></bean>
+	<!-- 出版社service -->
+	<bean id="concernService" class="org.crazyit.book.service.impl.ConcernServiceImpl" autowire="byName"></bean>
+	<!-- 书本service -->
+	<bean id="bookService" class="org.crazyit.book.service.impl.BookServiceImpl" autowire="byName"></bean>
+	<!-- 销售service -->
+	<bean id="saleRecordService" class="org.crazyit.book.service.impl.SaleRecordServiceImpl" autowire="byName"></bean>
+	<!-- 入库service -->
+	<bean id="inRecordService" class="org.crazyit.book.service.impl.InRecordServiceImpl" autowire="byName"></bean>
+</beans>
